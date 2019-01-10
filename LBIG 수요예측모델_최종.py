@@ -1,14 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[21]:
-
-
-category = '화장품/뷰티케어'
-
-
-# In[22]:
-
+category = '화장품/뷰티케어' # Categories of products
 
 import os
 import sys
@@ -19,10 +9,7 @@ import pickle
 import matplotlib.pyplot as plt
 
 
-# In[23]:
-
-
-file=open("Brand_Link_4","rb")
+file=open("Brand_Link_4","rb") # dictionary with key as brand name and value as keywords
 data=pickle.load(file)
 
 CLAC1_BRAND=pd.read_csv("CLAC1_BRAND_RANK_10.csv")
@@ -75,8 +62,6 @@ def get_ratio_data(CLAC, start_date, end_date):
     return result_data
 
 
-# In[24]:
-
 
 CLAC_BUTCT = pd.read_csv("SESSDT_CLAC1_BUYCT_qq.csv")          #판매량 데이터 불러오기
 del CLAC_BUTCT['Unnamed: 0']
@@ -84,13 +69,8 @@ del CLAC_BUTCT['Unnamed: 0']
 
 # # 회귀분석
 
-# In[25]:
-
 
 import statsmodels.api as sm #선형회귀 라이브러리
-
-
-# In[26]:
 
 
 def save_linear_summary(x_df,y_df): #OLS 방법으로 선형회귀
@@ -98,10 +78,7 @@ def save_linear_summary(x_df,y_df): #OLS 방법으로 선형회귀
     result_boston2 = model_boston2.fit()
     result_boston2.save("data")
 
-
-# In[27]:
-
-
+    
 def read_rsquared(start_date, end_date):
     df = get_ratio_data(category, start_date, end_date)
     save_linear_summary(df,CLAC_BUTCT[category])
@@ -109,9 +86,6 @@ def read_rsquared(start_date, end_date):
     data2=pickle.load(file)
     rsquared = data2.rsquared
     return rsquared
-
-
-# In[28]:
 
 
 def get_highest_model():
@@ -142,15 +116,10 @@ def get_highest_model():
         end_day = end.day
     return (highest_r_score, highest_day)
 
-
-# In[29]:
-
-
-r_score, highest_day = get_highest_model()
+r_score, highest_day = get_highest_model() # got the date when the model gets highest R2
 
 
-# In[30]:
-
+# # Visualization
 
 import datetime
 d0 = datetime.datetime(2018, 3, 1)
@@ -158,28 +127,13 @@ d1 = datetime.datetime(2018, 8, 30)
 delta = d1 - d0
 # calculate period
 
-
-# In[31]:
-
-
 month = int(highest_day[5:7])
 day = int(highest_day[8:])
-
-
-# In[32]:
-
 
 end_date = (datetime.datetime(2018, month, day) + datetime.timedelta(days=delta.days)).strftime('%Y-%m-%d')
 
 
-# In[33]:
-
-
 from sklearn.decomposition import PCA #PCA
-
-
-# In[34]:
-
 
 def PCA_BUYCT_SCATTER(x_df,y_df):                   #pca한 x와 y 점 그래프
     x_pca=get_PCA(x_df)
@@ -188,15 +142,7 @@ def PCA_BUYCT_SCATTER(x_df,y_df):                   #pca한 x와 y 점 그래프
     ax.scatter(x_pca,y_df)
     plt.show()
 
-
-# In[35]:
-
-
 df = get_ratio_data(category, highest_day, end_date)
-
-
-# In[36]:
-
 
 def get_PCA(DataFrame):
     pca= PCA(n_components=1)
@@ -206,45 +152,6 @@ def get_PCA(DataFrame):
         result_list.append(factor[0])
     return result_list
 
-
-# In[37]:
-
-
 pca_data = get_PCA(df)
 
-
-# In[38]:
-
-
 PCA_BUYCT_SCATTER(df,CLAC_BUTCT[category])
-
-
-# In[39]:
-
-
-print(r_score)
-
-
-# In[40]:
-
-
-print(highest_day)
-
-
-# 여성의류 : 4월 1일, 0.9897058343898342
-# 
-# 화장품/뷰티케어 : 4월 1일, 0.967606798229219
-# 
-# 스포츠패션 : 4월 1일, 0.9824392007477519 / 3월 31일 0.9799145946606006
-
-# In[41]:
-
-
-0.9897058343898342 - 0.9601127827301361
-
-
-# In[ ]:
-
-
-
-
