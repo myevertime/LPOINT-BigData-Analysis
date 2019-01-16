@@ -91,7 +91,7 @@ participated as a team named LBIG
 1. 온라인 선호지수 개발
 	- Usage & Preference Index
 2. 온라인 선호지수 해석 - Sess_hr와 Hit_sq간의 관계, Sess_hr와 Total_page_view_count간의 관계 분석
-	- Usage & Preference Index analysis
+	- Analyzing Usage & Preference Index
 3. 수요예측모델 설계
 	- Base code for analysis, Demand forcasting model
 4. 브랜드 상호성 분석 - 브랜드별 대체/선호관계 분석, 브랜드간 연관성 분석
