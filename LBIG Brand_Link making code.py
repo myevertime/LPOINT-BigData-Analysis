@@ -18,6 +18,7 @@ data = data.merge(data5, how = 'inner')
 data = data.merge(data6, how = 'inner')
 
 # Data Preprocessing - Fill n/a
+
 import numpy as np
 data= data.fillna(0)
 
@@ -26,6 +27,7 @@ data= data.fillna(0)
 data["CLNT_GENDER"].replace({"F":2,"M":1}, inplace = True)
 
 # Data Preprocessing - string data type to numeric type
+
 data['TOT_SESS_HR_V'] = data['TOT_SESS_HR_V'].str.replace(',', '')
 data['TOT_SESS_HR_V'] = pd.to_numeric(data['TOT_SESS_HR_V'])
 
@@ -48,9 +50,11 @@ d = output.groupby('PD_BRA_NM')[['PD_NM','KWD_NM']].apply(lambda g: g.values.tol
 d # {brand name : (Product name, keyword)}
 
 # Return the list containing unique brand names
+
 unique_brand_lst = list(output.PD_BRA_NM.unique())
 
 # Return a list sorted as the most searched keywords for each brand name
+
 def analyzer(brand_lst, dic):
     d = {}
     from collections import Counter
