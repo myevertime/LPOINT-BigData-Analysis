@@ -1,7 +1,26 @@
 # 2018 Lpoint BigData Competition
 participated as a team named LBIG
 
-# 1. Data Info
+# 1. Analysis
+Required to conduct three topics below :
+1) Develop online preference index(온라인 선호 지수 개발)
+2) Develop demand forcasting model per product categories (상품군별 수요예측모델 설계)
+3) Suggest new service based on the results of 1 and 2  (1), 2) 를 이용한 신규 서비스 제안)
+
+We suggested the renovation of Lpoint homepage which was working as a simple advertisement system providing recommendation based on age.
+We designed absolute curation service by targeting every single customer.
+
+1. Development of online preference index
+2. Interpretion of online preference index 
+	- Examined relationship between "Sess_hr" & "Hit_sq",  "Sess_hr" & "Total_page_view_count"
+3. Development of demand forcasting model
+4. Analysis of Brand interconnectivity 
+	- substituable or preferrable relationship
+	- connectivity of brands 
+
+
+
+# 2. Data Info
 
 provided 6 types of data
 
@@ -76,21 +95,3 @@ provided 6 types of data
 >CLAC2_NM ; Product Category2
 >
 >CLAC3_NM ; Product Category3
-
-
-# 2. Analysis
-Required to conduct three topics below :
-1) Develop online preference index(온라인 선호 지수 개발)
-2) Develop demand forcasting model per product categories (상품군별 수요예측모델 설계)
-3) Suggest new service based on the results of 1 and 2  (1), 2) 를 이용한 신규 서비스 제안)
-
-We suggested the renovation of Lpoint homepage which was working as a simple advertisement system providing recommendation based on age.
-We designed absolute curation service by targeting every single customer.
-
-1. Development of online preference index
-2. Interpretion of online preference index 
-	- Examined relationship between "Sess_hr" & "Hit_sq",  "Sess_hr" & "Total_page_view_count"
-3. Development of demand forcasting model
-4. Analysis of Brand interconnectivity 
-	- substituable or preferrable relationship
-	- connectivity of brands 
