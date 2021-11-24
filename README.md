@@ -1,4 +1,4 @@
-# 2018 Lpoint BigData Competition
+# Demand Forcasting Competition
 participated as a team named LBIG
 
 # 1. Analysis
